@@ -20,10 +20,26 @@ function copyText() {
     result.innerText = "";
     input.value = "";
   } else {
-    navigator.clipboard.writeText(textToCopy);
+    // Create a hidden input element
+    const hiddenInput = document.createElement("input");
+    hiddenInput.style.position = "fixed";
+    hiddenInput.style.top = "0";
+    hiddenInput.style.left = "0";
+    hiddenInput.style.opacity = "0";
+    hiddenInput.value = textToCopy;
+    document.body.appendChild(hiddenInput);
+
+    // Select and copy the text from the hidden input
+    hiddenInput.select();
+    hiddenInput.setSelectionRange(0, hiddenInput.value.length);
+    document.execCommand("copy");
+
+    // Remove the hidden input from the DOM
+    document.body.removeChild(hiddenInput);
+
     modal.style.display = "block";
     modalContent.style.backgroundColor = "#9ae6b5";
-    modalMessage.innerText = "Text Copied Succesfully!";
+    modalMessage.innerText = "Text Copied Successfully!";
     result.innerText = "";
     input.value = "";
   }
