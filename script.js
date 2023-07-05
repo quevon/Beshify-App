@@ -9,3 +9,7 @@ function copyText() {
   const textToCopy = result.innerText;
   navigator.clipboard.writeText(textToCopy);
 }
+function clearText() {
+  result.innerText = "";
+  input.value = "";
+}
