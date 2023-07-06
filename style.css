@@ -43,9 +43,25 @@
   width: 300px;
 }
 .title {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  gap: 10px;
   font-size: 30px;
   text-align: center;
   font-weight: 300;
+}
+.rotate-animation {
+  animation: animName 2s linear infinite;
+}
+
+@keyframes animName {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
 }
 #result {
   font-size: 14px;
